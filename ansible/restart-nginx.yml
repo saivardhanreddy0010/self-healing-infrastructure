@@ -1,0 +1,14 @@
+---
+- name: Self Healing NGINX Infrastructure
+
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+
+    - name: Restart NGINX container
+      community.docker.docker_container:
+        name: nginx-app
+        state: started
+        restart: true
